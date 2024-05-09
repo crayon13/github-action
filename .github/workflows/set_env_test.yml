@@ -1,0 +1,32 @@
+name: "crayon13 set Env test"
+run-name: "${{ inputs.env }} 환경으로 ${{ github.ref_name }} 를 배포합니다."
+
+on:
+    workflow_dispatch:
+        inputs:
+            env:
+                description: '배포할 환경'
+                required: true
+                default: 'devel'
+                type: choice
+                options:
+                    - devel
+                    - alpha
+                    - prod
+
+env:
+    AWS_REGION: ap-northeast-2
+    AWS_IAM_ROLE: arn:aws:iam::445363019552:role/all_github_action_ecr_upload
+
+jobs:
+  init:
+    name: initialize
+    runs-on: ubuntu-22.04
+    steps:
+      - id: setup_var
+        name: Setup Variables
+        run: |
+          echo "PROFILE=\$${{ inputs.env }}_PROFILE" >> $GITHUB_ENV
+      - name: print
+        run: |
+           echo "PROFILE          : ${{ env.PROFILE }}"
