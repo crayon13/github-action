@@ -26,7 +26,7 @@ jobs:
       - id: setup_var
         name: Setup Variables
         run: |
-          echo "PROFILE=\$${{ inputs.env }}_PROFILE" >> $GITHUB_ENV
+          echo "PROFILE=${{ inputs.env }}" >> $GITHUB_ENV
       - name: print
         run: |
            echo "PROFILE          : ${{ env.PROFILE }}"
