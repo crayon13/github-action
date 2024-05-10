@@ -23,10 +23,18 @@ jobs:
     name: initialize
     runs-on: ubuntu-22.04
     steps:
+      - id: time
+        name: Get Time
+        uses: nanzm/get-time-action@master
+        with:
+          timeZone: UTC+9
+          format: 'YYYYMMDD-HHmmss'
       - id: setup_var
         name: Setup Variables
         run: |
           echo "PROFILE=${{ inputs.env }}" >> $GITHUB_ENV
+          echo "TIME=${{ steps.time.outputs.time }}" >> $GITHUB_ENV
       - name: print
         run: |
            echo "PROFILE          : ${{ env.PROFILE }}"
+           echo "TIME             : ${{ env.TIME }}"
