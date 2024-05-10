@@ -33,8 +33,11 @@ jobs:
         name: Setup Variables
         run: |
           echo "PROFILE=${{ inputs.env }}" >> $GITHUB_ENV
-          echo "TIME=${{ steps.current-time.outputs.readableTime }}" >> $GITHUB_ENV
+          echo "R_TIME=${{ steps.current-time.outputs.readableTime }}" >> $GITHUB_ENV
+          echo "F_TIME=${{ steps.current-time.outputs.formattedTime }}" >> $GITHUB_ENV          
       - name: print
         run: |
            echo "PROFILE          : ${{ env.PROFILE }}"
-           echo "TIME             : ${{ env.TIME }}"
+           echo "R_TIME             : ${{ env.R_TIME }}"
+           echo "F_TIME             : ${{ env.F_TIME }}"
+
