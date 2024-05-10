@@ -27,7 +27,6 @@ jobs:
         name: Get Time
         uses: nanzm/get-time-action@master
         with:
-          timeZone: UTC+09:00
           format: 'YYYYMMDD-HHmmss'
       - id: setup_var
         name: Setup Variables
