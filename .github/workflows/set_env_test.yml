@@ -24,11 +24,11 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - id: time
-        name: Get Time
-        uses: nanzm/get-time-action@master
+        name: Get current time
+        uses: josStorer/get-current-time@v2
         with:
-          format: 'YYYYMMDD-HHmmss'
-          timeZone: UTC+8
+          format: YYYYMMDD-HHmmss
+          utcOffset: "+09:00"
       - id: setup_var
         name: Setup Variables
         run: |
