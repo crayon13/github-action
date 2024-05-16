@@ -3,6 +3,7 @@ run-name: "${{ inputs.env }} 환경으로 ${{ github.ref_name }} 를 배포합�
 
 on:
   workflow_dispatch:
+    inputs:
       module:
         description: '배포할 서비스'
         required: true
@@ -14,8 +15,7 @@ on:
           - bam_etax
           - master
           - material
-          - sales  
-    inputs:
+          - sales      
       env:
         description: '배포할 환경'
         required: true
